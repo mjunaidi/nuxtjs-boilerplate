@@ -4,10 +4,12 @@
       <!-- menu -->
       <a-col :span="5">
         <a-menu
-          v-for="e in modules"
-          :key="e.name"
+          :mode="mode"
+          :theme="theme"
+          @click="handleChangeMenu"
         >
-          <a-menu-item key="e.name" v-on:click="changeTo(e.name)">
+          <a-menu-item
+            v-for="e in modules" :key="e.name">
             {{e.label||e.name}}
           </a-menu-item>
         </a-menu>
@@ -59,11 +61,14 @@ export default {
     return {
       modules,
       selected,
+      mode: 'inline',
+      theme: 'light',
     }
   },
   methods: {
-    changeTo(n) {
-      this.selected = Util.dashify(n)
+    handleChangeMenu(event) {
+      const {key} = event
+      this.selected = key
     }
   }
 }
@@ -76,5 +81,9 @@ export default {
   overflow: hidden;
   border-left: 1px solid #ebedf0;
   margin-left: -1px;
+}
+.ant-menu-item-selected, .ant-menu-item-selected>a, .ant-menu-item-selected>a:hover {
+  color: #1890ff;
+  background-color: #fff !important;
 }
 </style>

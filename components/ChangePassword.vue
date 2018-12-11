@@ -24,7 +24,7 @@ export default {
         title: 'Change password',
         data,
         fields: [
-          {name:'password',type:'password'},
+          {name:'newPassword',type:'password'},
           {name:'confirmPassword',type:'password'},
         ]
       },
