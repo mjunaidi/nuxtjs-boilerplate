@@ -25,6 +25,7 @@ export default {
         data,
         fields: [
           {name:'email',type:'text'},
+          {name:'newEmail',type:'text'},
         ]
       },
     ]

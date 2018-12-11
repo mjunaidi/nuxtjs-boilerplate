@@ -4,7 +4,12 @@
 
 ## Preview
 
-<a href="https://mjunaidi.github.io/nuxtjs-boilerplate/index.html" target="_blank">Live Demo</a>
+<a href="https://mjunaidi.github.io/nuxtjs-boilerplate/index.html" target="_blank">__Live Demo__</a>
+
+## TODO
+* Color picker
+* CRUD (at least on localStorage)
+* Fixed change email and change phone links in profile form
 
 ## Build Setup
 
