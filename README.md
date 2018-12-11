@@ -2,6 +2,10 @@
 
 > My ultimate Nuxt.js project
 
+## Preview
+
+<a href="https://mjunaidi.github.io/nuxtjs-boilerplate/index.html" target="_blank">Live Demo</a>
+
 ## Build Setup
 
 ``` bash
