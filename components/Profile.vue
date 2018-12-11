@@ -3,6 +3,7 @@
     <a-row>
       <a-col :span="18">
         <div v-for="section in sections" :key="section.title">
+          <a :id="dashify(section.title)" />
           <re-form v-bind:props="section"></re-form>
         </div>
       </a-col>
@@ -10,7 +11,7 @@
       <!-- anchor -->
       <a-col :span="6">
         <a-anchor>
-          <a-anchor-link v-for="section in sections" :key="section.title" href="#+section.title" v-bind:title="section.title" />
+          <a-anchor-link v-for="section in sections" :key="section.title" :href="'#'+dashify(section.title)" :title="section.title" />
         </a-anchor>
       </a-col>
     </a-row>
@@ -21,6 +22,7 @@
 import ReForm from '~/components/ReForm'
 import Country from '~/static/Country.json'
 import State from '~/static/State.json'
+import * as Util from '~/plugins/Util'
 
 const countries = Object.keys(Country).map(e=>Country[e])
 const states = State.MY
@@ -33,7 +35,7 @@ const unitSystems = ['Metric (km, cm, kg, km/h)']
 
 export default {
   components: {
-    ReForm
+    ReForm,
   },
   props: ['props'],
   beforeCreate () {
@@ -89,6 +91,11 @@ export default {
     ]
     return {
       sections,
+    }
+  },
+  methods: {
+    dashify(n) {
+      return Util.dashify(n)
     }
   }
 }
