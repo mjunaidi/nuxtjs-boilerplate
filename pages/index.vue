@@ -131,6 +131,7 @@
 
 <script>
 import * as Util from '~/plugins/Util'
+import profileData from '~/static/profile-data.json'
 
 const links = ['Profile', 'Change email', 'Change password', 'Login account']
 
@@ -186,12 +187,6 @@ const sections = [
     ]
   },
 ]
-
-const profileData = {
-  email: 'munzirstudio@gmail.com',
-  phone: '+60189188655',
-  fullName: 'Munzir Madhadzir',
-}
 
 export default {
   beforeCreate () {
