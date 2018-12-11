@@ -1,82 +1,80 @@
 <template>
   <div>
-    <div v-for="section in sections" :key="section.title">
-      <re-form v-bind:props="section"></re-form>
-    </div>
+    <a-row>
+      <!-- menu -->
+      <a-col :span="5">
+        <a-menu
+          v-for="e in modules"
+          :key="e.name"
+        >
+          <a-menu-item key="e.name" v-on:click="changeTo(e.name)">
+            {{e.label||e.name}}
+          </a-menu-item>
+        </a-menu>
+      </a-col>
+
+      <!-- main content -->
+      <a-col :span="19">
+        <div class="main-container">
+          <component
+            v-bind:is="selected"
+            v-bind:props="props"
+          ></component>
+        </div>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
 <script>
-import ReForm from '~/components/ReForm'
-
-const countries = ['Malaysia', 'USA']
-const states = ['Perlis', 'Kedah']
-
-const currencies = ['Ringgit Malaysia', 'US Dollar']
-const timezones = ['(GMT+8:00) Kuala Lumpur']
-const dateFormats = ['DD/MM/YY']
-const timeFormats = ['24 hours (1430)']
-const unitSystems = ['Metric (km, cm, kg, km/h)']
+import Profile from '~/components/Profile'
+import ChangeEmail from '~/components/ChangeEmail'
+import ChangePassword from '~/components/ChangePassword'
+import LoginAccounts from '~/components/LoginAccounts'
+import * as Util from '~/plugins/Util'
 
 export default {
   components: {
-    ReForm
+    Profile,
+    ChangeEmail,
+    ChangePassword,
+    LoginAccounts,
   },
   props: ['props'],
-  beforeCreate () {
+  beforeCreate() {
+
+  },
+  created() {
 
   },
   data() {
-    const {data} = this.props
-    const sections = [
-      {
-        title: 'Profile',
-        data,
-        fields: [
-          {name:'email',type:'text',readOnly:true,link:{
-            label:'Change email',
-          }},
-          {name:'phone',type:'text',readOnly:true,link:{
-            label:'Change phone',
-          }},
-          {name:'fullName',type:'text',required:true},
-          {name:'profilePhoto',type:'image'},
-          {name:'companyName',type:'text'},
-          {name:'companyLogo',type:'image'},
-          {name:'companyIcon',type:'image'},
-          {name:'addressLine1',type:'text'},
-          {name:'addressLine2',type:'text'},
-          {name:'postalCode',type:'text',maxLength:10,},
-          {name:'city',type:'text'},
-          {name:'country',type:'select',options:countries},
-          {name:'state',type:'select',options:states},
-        ]
-      },
-      {
-        title: 'Format and measurement',
-        data,
-        fields: [
-          {name:'currency',type:'select', options:currencies},
-          {name:'timezone',type:'select', options:timezones},
-          {name:'dateFormat',type:'select', options:dateFormats},
-          {name:'timeFormat',type:'select', options:timeFormats},
-          {name:'unitSystem',type:'select', options:unitSystems},
-        ]
-      },
-      {
-        title: 'Theme',
-        data,
-        fields: [
-          {name:'theme',type:'select',options:['light','dark']},
-          {name:'primaryColor', type:'color'},
-          {name:'secondaryColor', type:'color'},
-          {name:'systemLogo', type:'radio',options: ['Use default', 'Use company logo and icon']},
-        ]
-      },
+    const modules = [
+      {name: 'profile',},
+      {name: 'changeEmail',},
+      {name: 'changePassword',},
+      {name: 'loginAccounts',},
     ]
+    modules.forEach(e=>e.label=Util.labelify(e.name))
+    const selected = modules[0].name
     return {
-      sections,
+      modules,
+      selected,
+    }
+  },
+  methods: {
+    changeTo(n) {
+      this.selected = Util.dashify(n)
     }
   }
 }
 </script>
+
+<style>
+.main-container {
+  padding: 0 64px 64px 64px;
+  min-height: 500px;
+  overflow: hidden;
+  border-left: 1px solid #ebedf0;
+  margin-left: -1px;
+}
+</style>

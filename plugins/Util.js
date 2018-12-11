@@ -21,3 +21,23 @@ export const uncamel=s=>{
   }
   return ''
 }
+
+export const dashify=s=>{
+  if (typeof(s)==='string'&&s.length>0) {
+    const w = s.match(/[A-Za-z][a-z]*/g) || []
+    if (Array.isArray(w)&&w.length>0) {
+      return w.map(e=>e.toLowerCase()).join('-')
+    }
+  }
+  return ''
+}
+
+export const labelify=s=>{
+  if (typeof(s)==='object'&&s!==null) {
+    return labelify(s.name)
+  }
+  if (typeof(s)==='string'&&s.length>0) {
+    return uncamel(s)
+  }
+  return ''
+}

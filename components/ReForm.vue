@@ -26,6 +26,16 @@
             />
           </template>
         </template>
+        <template v-else-if="e.type==='password'">
+          <a-input
+            v-decorator="[
+              e.name,
+              {rules: [{ required: e.required, message: `Please input your ${labelify(e.name).toLowerCase()}!` }]}
+            ]"
+            type="password"
+            v-bind:class="e.name"
+          />
+        </template>
         <template v-else-if="e.type==='image'">
           <a-upload
             v-decorator="[e.name, {
@@ -96,13 +106,7 @@ export default {
       this.$message.info(n||'test')
     },
     labelify(s) {
-      if (typeof(s)==='object'&&s!==null) {
-        return labelify(s.name)
-      }
-      if (typeof(s)==='string'&&s.length>0) {
-        return Util.uncamel(s)
-      }
-      return ''
+      return Util.labelify(s)
     },
     handleSubmit (e) {
       e.preventDefault()
