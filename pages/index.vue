@@ -259,7 +259,7 @@ export default {
 
 <style>
 .container {
-  background: #ECECEC;
+  background: #ececec;
   padding: 30px;
 }
 .ant-form-item-label label:after {
