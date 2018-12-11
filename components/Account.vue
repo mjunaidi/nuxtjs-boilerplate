@@ -76,7 +76,7 @@ export default {
 
 <style>
 .main-container {
-  padding: 0 64px 64px 64px;
+  padding: 0 8px 64px 64px;
   min-height: 500px;
   overflow: hidden;
   border-left: 1px solid #ebedf0;

@@ -14,7 +14,10 @@
         <!-- field -->
         <template v-if="e.type==='text'">
           <template v-if="e.readOnly">
-            {{props.data[e.name]}}
+            <div>
+              <span>{{props.data[e.name]}}</span>
+              <a class="float-right">{{e.link.label}}</a>
+            </div>
           </template>
           <template v-else>
             <a-input
@@ -116,11 +119,8 @@ export default {
         }
       })
     },
-    handleSelectChange (value) {
+    handleSelectChange(value) {
       this.$message.info(value)
-      this.form.setFieldsValue({
-        note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,
-      })
     },
     uploadFile(e) {
       if (Array.isArray(e)) {
@@ -135,6 +135,9 @@ export default {
 <style>
 .ant-form-item-label label:after {
   content: "";
+}
+.ant-form-item-control-wrapper {
+  width: 66%;
 }
 .postalCode {
   width: 40%;

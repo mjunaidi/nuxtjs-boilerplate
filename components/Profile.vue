@@ -1,8 +1,19 @@
 <template>
   <div>
-    <div v-for="section in sections" :key="section.title">
-      <re-form v-bind:props="section"></re-form>
-    </div>
+    <a-row>
+      <a-col :span="18">
+        <div v-for="section in sections" :key="section.title">
+          <re-form v-bind:props="section"></re-form>
+        </div>
+      </a-col>
+
+      <!-- anchor -->
+      <a-col :span="6">
+        <a-anchor>
+          <a-anchor-link v-for="section in sections" :key="section.title" href="#+section.title" v-bind:title="section.title" />
+        </a-anchor>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
@@ -36,10 +47,10 @@ export default {
         data,
         fields: [
           {name:'email',type:'text',readOnly:true,link:{
-            label:'Change email',
+            label:'Change email',name:'changeEmail',
           }},
           {name:'phone',type:'text',readOnly:true,link:{
-            label:'Change phone',
+            label:'Change phone',name:'changePhone',
           }},
           {name:'fullName',type:'text',required:true},
           {name:'profilePhoto',type:'image'},
