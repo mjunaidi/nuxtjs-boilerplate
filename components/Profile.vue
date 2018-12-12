@@ -84,8 +84,8 @@ export default {
         data,
         fields: [
           {name:'theme',type:'select',options:['light','dark']},
-          {name:'primaryColor', type:'color'},
-          {name:'secondaryColor', type:'color'},
+          {name:'primaryColor', type:'color',default:'#1790FF'},
+          {name:'secondaryColor', type:'color',default:'#000000'},
           {name:'systemLogo', type:'radio',options: ['Use default', 'Use company logo and icon']},
         ]
       },

@@ -41,3 +41,18 @@ export const labelify=s=>{
   }
   return ''
 }
+
+export const toHex=n=>{
+  if (typeof(n)==='number'&&n>0) {
+    const s = n.toString(16)
+    if (typeof(s)==='string'&&s.length>0) {
+      if (s.length===1) {
+        return `0${s}`
+      }
+      if (s.length>=2) {
+        return s
+      }
+    }
+  }
+  return '00'
+}

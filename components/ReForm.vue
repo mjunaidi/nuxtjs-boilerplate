@@ -65,6 +65,10 @@
             <a-select-option v-for="opt in e.options" :key="opt">{{opt}}</a-select-option>
           </a-select>
         </template>
+        <template v-else-if="e.type==='color'">
+          <color-picker :props="{color:e.default}">
+          </color-picker>
+        </template>
         <template v-else-if="e.type==='radio'">
           <a-radio-group v-decorator="[e.name]">
             <a-radio v-for="opt in e.options" :key="opt" v-bind:value="opt">{{opt}}</a-radio>
@@ -86,9 +90,13 @@
 </template>
 
 <script>
+import ColorPicker from '~/components/ColorPicker'
 import * as Util from '~/plugins/Util'
 
 export default {
+  components: {
+    ColorPicker,
+  },
   props: ['props'],
   beforeCreate () {
     this.form = this.$form.createForm(this)

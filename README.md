@@ -7,12 +7,12 @@
 <a href="https://mjunaidi.github.io/nuxtjs-boilerplate/index.html" target="_blank">__Live Demo__</a>
 
 ## TODO
-* Color picker
+* Color picker - selected color yet to update parent's model
 * CRUD (at least on localStorage)
 * Fixed change email and change phone links in profile form
-* Progress icon on the top navbar
+* Progress icon on the top navbar - replace the loading icon
 * Make the navbar looks as close as the wireframe
-* User menu to display category (Premium) under the name - replace loading icon
+* User menu to display category (Premium) under the name
 
 ## Build Setup
 
