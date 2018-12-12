@@ -6,6 +6,7 @@
         <a-menu
           :mode="mode"
           :theme="theme"
+          :defaultSelectedKeys="[selected]"
           @click="handleChangeMenu"
           class="mt-5"
         >
