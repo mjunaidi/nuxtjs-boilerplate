@@ -7,9 +7,9 @@
           :mode="mode"
           :theme="theme"
           @click="handleChangeMenu"
+          class="mt-5"
         >
-          <a-menu-item
-            v-for="e in modules" :key="e.name">
+          <a-menu-item v-for="e in modules" :key="e.name" :style="{fontWeight:'500'}">
             {{e.label||e.name}}
           </a-menu-item>
         </a-menu>
@@ -17,7 +17,7 @@
 
       <!-- main content -->
       <a-col :span="19">
-        <div class="main-container">
+        <div class="main-container" :style="{paddingTop:'24px'}">
           <component
             v-bind:is="selected"
             v-bind:props="props"
