@@ -29,7 +29,17 @@
           <a-icon type="loading" />
         </a-menu-item>
         <a-sub-menu key="user">
-          <span slot="title"><a-icon type="user" />{{data.fullName}}</span>
+          <div slot="title">
+            <a-row>
+              <a-col :span="4">
+                <a-icon type="user" />
+              </a-col>
+              <a-col :span="20">
+                <div>{{data.fullName}}</div>
+                <div>{{data.category}}</div>
+              </a-col>
+            </a-row>
+          </div>
           <a-menu-item key="logout">Logout</a-menu-item>
         </a-sub-menu>
       </a-menu>
@@ -187,6 +197,10 @@ export default {
   background: url('~assets/images/logo.svg');
   margin: 16px 28px 16px 0;
   float: left;
+}
+/*navbar*/
+.ant-menu-submenu-title .ant-row > div > div {
+  line-height: 24px;
 }
 /* left menu */
 .left-menu h3 {
