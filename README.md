@@ -4,7 +4,7 @@
 
 ## Preview
 
-<a href="https://mjunaidi.github.io/nuxtjs-boilerplate/index.html" target="_blank">__Live Demo__</a>
+[Live demo](https://mjunaidi.github.io/nuxtjs-boilerplate/index.html)
 
 ## TODO
 * Color picker - selected color yet to update parent's model
