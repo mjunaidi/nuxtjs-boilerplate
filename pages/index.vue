@@ -9,7 +9,7 @@
         :style="{ lineHeight: '64px' }"
       >
         <a-menu-item key="search">
-          <a-input placeholder="Search" v-model="q" ref="q" size="large" class="mr-3">
+          <a-input placeholder="Search" v-model="q" ref="q" size="large" class="search-box mr-3">
             <a-icon slot="prefix" type="search" />
           </a-input>
         </a-menu-item>
@@ -31,10 +31,10 @@
         <a-sub-menu key="user">
           <div slot="title">
             <a-row>
-              <a-col :span="4">
-                <a-icon type="user" />
+              <a-col :span="8">
+                <a-avatar icon="user"/>
               </a-col>
-              <a-col :span="20">
+              <a-col :span="16">
                 <div>{{data.fullName}}</div>
                 <div>{{data.category}}</div>
               </a-col>
@@ -178,6 +178,9 @@ export default {
 </script>
 
 <style>
+.ant-layout-header {
+  padding: 0;
+}
 .ant-layout-header, .ant-menu-dark {
   background: #0063d4;
 }
@@ -198,6 +201,12 @@ export default {
   margin: 16px 28px 16px 0;
   float: left;
 }
+#app .logo {
+  width: 200px;
+  height: 100%;
+  margin-top: 5px;
+  background-size: 13rem;
+}
 /*navbar*/
 .ant-menu-submenu-title .ant-row > div > div {
   line-height: 24px;
@@ -215,5 +224,12 @@ export default {
 }
 .left-menu .ant-menu-item > span {
   font-weight: bold;
+}
+/* search box at navbar */
+.search-box::placeholder {
+  color: #fff;
+}
+.search-box {
+  width: 10rem;
 }
 </style>
