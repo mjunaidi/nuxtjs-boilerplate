@@ -4,7 +4,7 @@
 
 ## Preview
 
-[Live demo](https://mjunaidi.github.io/nuxtjs-boilerplate/index.html)
+[Live demo](https://www.trendify.me)
 
 ## TODO
 * Color picker - selected color yet to update parent's model
