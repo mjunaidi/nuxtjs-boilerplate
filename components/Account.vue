@@ -2,7 +2,7 @@
   <div>
     <a-row>
       <!-- menu -->
-      <a-col :span="5">
+      <a-col :span="6">
         <a-menu
           :mode="mode"
           :theme="theme"
@@ -16,7 +16,7 @@
       </a-col>
 
       <!-- main content -->
-      <a-col :span="19">
+      <a-col :span="18">
         <div class="main-container" :style="{paddingTop:'24px'}">
           <component
             v-bind:is="selected"
@@ -76,7 +76,7 @@ export default {
 
 <style>
 .main-container {
-  padding: 0 8px 64px 64px;
+  padding: 0 8px 60px 60px;
   min-height: 500px;
   overflow: hidden;
   border-left: 1px solid #ebedf0;

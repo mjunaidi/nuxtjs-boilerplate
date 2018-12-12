@@ -10,6 +10,9 @@
 * Color picker
 * CRUD (at least on localStorage)
 * Fixed change email and change phone links in profile form
+* Progress icon on the top navbar
+* Make the navbar as close as the wireframe
+* User menu to display category (Premium) under the name - replace loading icon
 
 ## Build Setup
 

@@ -12,11 +12,26 @@
           <a-input placeholder="Search" v-model="q" ref="q" size="large" class="mr-3">
             <a-icon slot="prefix" type="search" />
           </a-input>
+        </a-menu-item>
+        <a-menu-item key="plus">
           <a-button type="primary" shape="circle" icon="plus"></a-button>
         </a-menu-item>
-        <a-menu-item key="1">
-
+        <a-menu-item key="items">
+          <a-icon type="database" />
         </a-menu-item>
+        <a-menu-item key="notification">
+          <a-icon type="bell" />
+        </a-menu-item>
+        <a-menu-item key="message">
+          <a-icon type="message" />
+        </a-menu-item>
+        <a-menu-item key="progress">
+          <a-icon type="loading" />
+        </a-menu-item>
+        <a-sub-menu key="user">
+          <span slot="title"><a-icon type="user" />{{data.fullName}}</span>
+          <a-menu-item key="logout">Logout</a-menu-item>
+        </a-sub-menu>
       </a-menu>
     </a-layout-header>
     <a-layout>
@@ -105,7 +120,7 @@ const links = [
       {name: 'Billing', icon: 'form'},
       {name: 'Discounts', icon: 'wallet'},
       {name: 'Referral', icon: 'usergroup-add'},
-      {name: 'Campaigns', icon: 'sound'},
+      {name: 'Campaigns', icon: 'notification'},
     ]
   },
   {

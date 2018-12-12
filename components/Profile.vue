@@ -2,9 +2,10 @@
   <div>
     <a-row>
       <a-col :span="18">
-        <div v-for="section in sections" :key="section.title">
+        <div v-for="(section,i) in sections" :key="section.title">
           <a :id="dashify(section.title)" />
           <re-form v-bind:props="section"></re-form>
+          <a-divider v-if="i<sections.length-1" />
         </div>
       </a-col>
 
